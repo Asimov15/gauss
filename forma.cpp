@@ -2,7 +2,9 @@
 
 forma::forma()
 {
+	// constructor
 	int i;
+	// x is a matrix holding the coefficients of the equations. The last column holds the constants
 	x = (double *) malloc((pow(SIZE,2) + SIZE) * sizeof(double));
 	for(i = 0; i < (pow(SIZE,2) + SIZE); i++)
 	{
@@ -12,6 +14,7 @@ forma::forma()
 
 forma::forma(double m[][SIZE + 1])
 {
+	// this constructor takes the address of a 2 D array so that the matrix can be conviently initialized.
 	int i, j;
 	x = (double *) malloc((pow(SIZE,2) + SIZE) * sizeof(double));
 	for (j = 0; j < SIZE; j++)
@@ -25,11 +28,13 @@ forma::forma(double m[][SIZE + 1])
 
 forma::~forma()
 {
+	// destructor
 	delete[] x;
 }
 
 double forma::get(int i, int j)
 {
+	// return an element
 	assert(i >= 0 && i < (SIZE +1));
 	assert(j >= 0 && j < SIZE);
 	return x[j*(SIZE + 1) + i]; // i = column number j = row number
@@ -37,6 +42,7 @@ double forma::get(int i, int j)
 
 void forma::put(int i, int j, double value)
 {
+	// set an elelment
 	assert(i >= 0 && i < (SIZE + 1));
 	assert(j >= 0 && j < SIZE);
 	x[j*(SIZE + 1) + i] = value;
@@ -44,6 +50,7 @@ void forma::put(int i, int j, double value)
 
 void forma::eliminate()
 {
+	// forward elemination phase
 	int i, j, k, max;
 	double t;
 	for (i = 0; i < SIZE; i++)
@@ -77,6 +84,7 @@ void forma::eliminate()
 
 void forma::substitute(endodatio *c)
 {
+	// backward substitution phase
 	int j, k;
 	double t;
 	for ( j = SIZE - 1; j >= 0; j--)
