@@ -25,11 +25,12 @@ void endodatio::put(int i, double value)
 void endodatio::output()
 {
 	int i;
-	for (i = 0; i < SIZE - 1 ; i++)
+	for (i = 0; i < SIZE - 1; i++)
 	{
 		cout << solution[i] << ",";
 	}
-	cout << solution[SIZE] << endl;
+	
+	cout << solution[SIZE - 1] << endl;
 
 }
 

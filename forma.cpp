@@ -79,7 +79,7 @@ void forma::substitute(endodatio *c)
 {
 	int j, k;
 	double t;
-	for ( j = SIZE - 1; j >=0; j--)
+	for ( j = SIZE - 1; j >= 0; j--)
 	{
 		t = 0.0;
 		for ( k = j + 1; k < SIZE; k++)
@@ -95,6 +95,7 @@ void forma::output_matrix()
 	int i,j;
 	double val;
 	
+	cout << endl;
 	for (j = 0; j < SIZE; j++)
 	{
 		cout << "[ ";
@@ -107,4 +108,3 @@ void forma::output_matrix()
 	}
 	cout << "_______________________" << endl;
 }
-
