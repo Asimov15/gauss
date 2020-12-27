@@ -8,7 +8,7 @@ class forma
 	public:
 		forma();
 		~forma();
-		forma(double [][SIZE + 1]);
+		forma(double*);
 		double get(int, int);
 		void put(int, int, double);
 		void eliminate();

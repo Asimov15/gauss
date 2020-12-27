@@ -2,11 +2,13 @@
 	#define SHARED_INCLUDES_HEADER
 	#define SIZE 6
 
-	#include <stdio.h>		/* printf */
-	#include <stdlib.h>		/* abs */
+	#include <stdio.h>		// printf 
+	#include <stdlib.h>		// abs 
 	#include <assert.h>
-	#include <math.h>    // pow
+	#include <math.h>		// pow
+	#include <time.h>		// time
 	#include <iostream>
+	
 	using namespace std;
 
 	int main(int argc, char** args);

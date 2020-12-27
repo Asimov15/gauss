@@ -12,7 +12,7 @@ forma::forma()
 	}
 }
 
-forma::forma(double m[][SIZE + 1])
+forma::forma(double *m)
 {
 	// this constructor takes the address of a 2 D array so that the matrix can be conviently initialized.
 	int i, j;
@@ -21,7 +21,7 @@ forma::forma(double m[][SIZE + 1])
 	{
 		for (i = 0; i < SIZE + 1; i++)
 		{
-			x[j*(SIZE + 1) + i] = m[j][i];  //[row][col] j = row number i = col number
+			x[j*(SIZE + 1) + i] = *(m + j * (SIZE + 1) + i);  //[row][col] j = row number i = col number
 		}
 	}
 }
@@ -78,7 +78,7 @@ void forma::eliminate()
 				put(k,j, get(k,j) - get(k,i) * get(i,j) / get(i,i));
 			}
 		}
-		output_matrix();
+		//output_matrix();
 	}
 }
 
@@ -116,3 +116,5 @@ void forma::output_matrix()
 	}
 	cout << "_______________________" << endl;
 }
+
+//void forma::test_solution(
