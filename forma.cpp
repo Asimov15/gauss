@@ -4,8 +4,10 @@ forma::forma()
 {
 	// constructor
 	int i;
+	
 	// x is a matrix holding the coefficients of the equations. The last column holds the constants
 	x = (double *) malloc((pow(SIZE,2) + SIZE) * sizeof(double));
+	
 	for(i = 0; i < (pow(SIZE,2) + SIZE); i++)
 	{
 		x[i] = 0;
@@ -14,8 +16,9 @@ forma::forma()
 
 forma::forma(double *m)
 {
-	// this constructor takes the address of a 2 D array so that the matrix can be conviently initialized.
+	// this constructor takes the address of a 2D array so that the matrix can be conviently initialized.
 	int i, j;
+	
 	x = (double *) malloc((pow(SIZE,2) + SIZE) * sizeof(double));
 	for (j = 0; j < SIZE; j++)
 	{
@@ -37,7 +40,7 @@ double forma::get(int i, int j)
 	// return an element
 	assert(i >= 0 && i < (SIZE +1));
 	assert(j >= 0 && j < SIZE);
-	return x[j*(SIZE + 1) + i]; // i = column number j = row number
+	return x[j*(SIZE + 1) + i]; // i = column number; j = row number
 }
 
 void forma::put(int i, int j, double value)
@@ -55,6 +58,7 @@ void forma::eliminate()
 	double t;
 	for (i = 0; i < SIZE; i++)
 	{
+		// find max row
 		max = i;
 		for (j = i + 1; j < SIZE; j++)
 		{
@@ -64,6 +68,7 @@ void forma::eliminate()
 			}
 		}
 		
+		// move max row to top
 		for (k = i; k < (SIZE + 1); k++)
 		{
 			t = get(k,i);
@@ -78,7 +83,6 @@ void forma::eliminate()
 				put(k,j, get(k,j) - get(k,i) * get(i,j) / get(i,i));
 			}
 		}
-		//output_matrix();
 	}
 }
 
@@ -117,4 +121,28 @@ void forma::output_matrix()
 	cout << "_______________________" << endl;
 }
 
-//void forma::test_solution(
+void forma::test_solution(endodatio *c)
+{
+	double result;
+	cout.precision(17);
+	int i;
+	
+	result = 0.0;
+	for (i = 0; i < SIZE; i++)
+	{
+		result += get(i,0) * c->get(i);
+	}
+	
+	if (abs(result - get(SIZE,0)) < 1e10)
+	{
+		cout << "success" << endl;
+		cout << result << endl;
+		cout << get(SIZE, 0) << endl;
+	}
+	else
+	{
+		cout << "failed" << endl;
+		cout << result << endl;
+		cout << get(SIZE, 0) << endl;
+	}
+}

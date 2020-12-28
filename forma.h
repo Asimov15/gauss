@@ -14,5 +14,6 @@ class forma
 		void eliminate();
 		void substitute(endodatio*);
 		void output_matrix();
+		void test_solution(endodatio *c);
 };
 

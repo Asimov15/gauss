@@ -1,6 +1,6 @@
 #ifndef SHARED_INCLUDES_HEADER
 	#define SHARED_INCLUDES_HEADER
-	#define SIZE 6
+	#define SIZE 1000
 
 	#include <stdio.h>		// printf 
 	#include <stdlib.h>		// abs 
