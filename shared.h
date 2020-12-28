@@ -11,7 +11,7 @@
 	
 	using namespace std;
 
-	int main(int argc, char** args);
+	int main();
 	
 	class endodatio
 	{

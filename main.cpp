@@ -1,6 +1,6 @@
 #include "shared.h"
 
-int main(int argc, char** args)
+int main()
 {
 	int i,j;
 	double e[SIZE][SIZE + 1];
@@ -23,16 +23,15 @@ int main(int argc, char** args)
 									//{4,3,1,-6,-3,-2, -27}
 								//};
 	
-	forma *a;
+	forma *equation;
 	endodatio *b;
-	a = new forma((double *)e);
+	equation = new forma((double *)e);
 	b = new endodatio();
-	a->output_matrix();
-	a->eliminate();
-	//a->output_matrix();
-	a->substitute(b);
-	a->output_matrix();
+	equation->output_matrix();
+	equation->eliminate();
+	equation->substitute(b);
+	equation->output_matrix();
 	b->output();
-	a->test_solution(b);
+	equation->test_solution(b);
 	return 0;
 }
